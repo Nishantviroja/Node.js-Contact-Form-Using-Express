@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <!--------- <title>Responsive Navigation Menu</title>------>
+  <title>home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    nav {
+      display: flex;
+      height: 80px;
+      width: 100%;
+      background: #da1c1c;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px 0 100px;
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      color: #fff;
+      font-size: 35px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 5px;
+    }
+
+    nav ul li a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: #111;
+      background: #fff;
+    }
+
+    nav .menu-btn i {
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+
+    section {
+      padding: 60px 0;
+    }
+
+    .max-width {
+      max-width: 1300px;
+      padding: 0 80px;
+      margin: auto;
+    }
+
+
+    section .title {
+      position: relative;
+      text-align: center;
+      color: #da1c1c;
+      font-size: 40px;
+      font-weight: 1000;
+      margin-bottom: 50px;
+      /* padding-bottom: 20px; */
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: -1;
+      width: 100%;
+      padding: 0 30px;
+      color: #1b1b1b;
+    }
+
+    .content div {
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    /* contact section styling */
+
+    .contact .contact-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* .contact .title::after{
+  content: "get in touch";
+} */
+    .contact .contact-content .column {
+      width: calc(50% - 30px);
+    }
+
+    .contact .contact-content .text {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .contact .contact-content .left p {
+      text-align: justify;
+    }
+
+    .contact .contact-content .left .icons {
+      margin: 10px 0;
+    }
+
+    .contact .contact-content .icons {
+      display: flex;
+      flex-direction: column;
+      /* place-items: center; */
+
+    }
+
+    .contact .contact-content .row {
+      display: flex;
+      height: 65px;
+      align-items: center;
+    }
+
+    .contact .contact-content .row .info {
+      margin-left: 30px;
+    }
+
+    .contact .contact-content .row i {
+      font-size: 25px;
+      color: #da1c1c;
+    }
+
+    .contact .contact-content .info .head {
+      font-weight: 500;
+    }
+
+    .contact .contact-content .info .sub-title {
+      color: #333;
+    }
+
+    .contact .right form .fields {
+      display: flex;
+    }
+
+    .contact .right form .field,
+    .contact .right form .fields .field {
+      height: 45px;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .contact .right form .textarea {
+      height: 80px;
+      width: 100%;
+    }
+
+    .contact .right form .name {
+      margin-right: 10px;
+    }
+
+    .contact .right form .field input,
+    .contact .right form .textarea textarea {
+      height: 100%;
+      width: 100%;
+      border: 2px solid lightgrey;
+      border-radius: 6px;
+      outline: none;
+      padding: 0 15px;
+      font-size: 17px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    input[type=file]::file-selector-button {
+      height: 100%;
+      width: 60%;
+      border: 2px solid lightgrey;
+      background: rgb(252, 247, 240);
+      border-radius: 6px;
+      outline: none;
+      padding: 0 15px;
+      font-size: 15px;
+      margin-right: 20px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .contact .right form .field input:focus,
+    .contact .right form .textarea textarea:focus,
+    input[type=file]::file-selector-button:focus {
+      border: 2px solid #da1c1c;
+
+    }
+
+    .contact .right form .textarea textarea {
+      padding-top: 10px;
+      resize: none;
+    }
+
+    .contact .right form .button-area {
+      display: flex;
+      align-items: center;
+
+    }
+
+    .right form .button-area button {
+      color: #fff;
+      display: block;
+      width: 160px !important;
+      height: 45px;
+      outline: none;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      flex-wrap: nowrap;
+      background: #da1c1c;
+      border: 2px solid #da1c1c;
+      transition: all 0.3s ease;
+    }
+
+    .right form .button-area button:hover {
+      color: #da1c1c;
+      background: none;
+    }
+
+
+
+    /* input[type=file]::file-selector-button {
+  border: 2px solid #e77c5c;
+  background-color: indigo;
+  color: white;
+  padding: 5px;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+} */
+
+    /* footer section styling */
+    footer {
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      background: #111;
+      padding: 15px 23px;
+      color: #fff;
+      text-align: center;
+    }
+
+    footer span a {
+      color: #da1c1c;
+      text-decoration: none;
+    }
+
+    footer span a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      nv.com</div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <ul>
+      <li><a class="active" href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/Services">Services</a></li>
+      <li><a href="/Gallery">Gallery</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- contact section start -->
+  <section class="contact" id="contact">
+    <div class="max-width">
+      <h2 class="title">Contact us</h2>
+      <div class="contact-content">
+        <div class="column left">
+          <div class="text">Get in Touch</div>
+          <p>For cantact nishant viroja. you can call or email on given details. <br> fill this message form i will
+            contant soon.....</p>
+          <div class="icons">
+            <div class="row">
+              <i class="fas fa-phone"></i>
+              <div class="info">
+                <div class="head">Call on</div>
+                <div class="sub-title">+91 75749 14108</div>
+              </div>
+            </div>
+            <div class="row">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="info">
+                <div class="head">Address</div>
+                <div class="sub-title">Gujrat , india</div>
+              </div>
+            </div>
+            <div class="row">
+              <i class="fas fa-envelope"></i>
+              <div class="info">
+                <div class="head">Email</div>
+                <div class="sub-title">nishantviroja@nv.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column right">
+          <div class="text">Message Nishant</div>
+
+          <form action="/" method="POST">
+            <div class="field">
+              <input type="text" name="Name" placeholder="Name" required>
+            </div>
+            <div class="fields">
+              <div class="field name">
+                <input type="number" name="number" placeholder="Phone no." required>
+              </div>
+              <div class="field email">
+                <input type="email" name="email" placeholder="Email" required>
+              </div>
+            </div>
+          
+            <div class="field textarea">
+              <textarea cols="30" rows="10" placeholder="Message.." name="message" required></textarea>
+            </div>
+            <div class="button-area">
+              <button type="submit">Send message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/  footer  /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/     -->
+
+  <!-- footer section start -->
+  <footer>
+    <span class="far fa-copyright"></span> <span style="color: #cf1616;">nv.com
+    </span>&nbsp;|&nbsp;&nbsp; All rights reserved <span style="color: #cf1616;"> 19-06-2021.</span>
+  </footer>
+
+
+</body>
+
+</html>

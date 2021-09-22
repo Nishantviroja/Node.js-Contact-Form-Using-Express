@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+   <!--------- <title>Responsive Navigation Menu</title>------>
+   <title>home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} 
+nav{
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background: #da1c1c;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+}
+nav .logo{
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background: #fff;
+}
+nav .menu-btn i{
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+  }
+}
+
+section {
+
+  padding: 60px 0;
+}
+.max-width{
+  max-width: 1300px;
+  padding: 0 80px;
+  margin:  auto;
+}
+
+
+section .title{
+  position: relative;
+  text-align: center;
+  color: #da1c1c;
+  font-size: 80px;
+  font-weight: 1000;
+  margin-top: 60px;
+  border: 8px solid #ff0000;
+  background-color: #353535;
+  border-radius: 15px;
+  padding: 30px 20px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: -1;
+  width: 100%;
+  padding: 10 30px;
+  color: #1b1b1b;
+
+}
+
+/* footer section styling */
+footer{
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  background: #111;
+  padding: 15px 23px;
+  color: #fff;
+  text-align: center;
+}
+footer span a{
+  color: #da1c1c;
+  text-decoration: none;
+}
+footer span a:hover{
+  text-decoration: underline;
+}
+
+.contact .button-area{
+display: flex;
+align-items: center;
+
+
+}
+.button-area button{
+color: #fff;
+display: block;
+width: 160px!important;
+height: 45px;
+outline: none;
+font-size: 18px;
+margin: auto ;
+margin-top: 500PX;
+font-weight: 500;
+border-radius: 6px;
+cursor: pointer;
+flex-wrap: nowrap;
+background: #ff0101;
+border: 2px solid #111
+
+}
+.button-area button a{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        nv.com</div>
+      <input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="">Gallery</a></li>
+      </ul>
+    </nav>
+    
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="title"> Your Details Is Submited To  <span style="color: #d0cfd1;">nv.com </span>   </h2>
+            <div class="content">
+              
+                <div class="button-area">
+                    <button> <a href="/"> Go Back </a> </button>
+                </div> 
+                
+            </div>
+        </div>
+    </section>
+  <!-- /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/  footer  /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/     -->
+
+  <!-- footer section start -->
+  <footer>
+      <span class="far fa-copyright"></span> <span style="color: #cf1616;">nv.com
+      </span>&nbsp;|&nbsp;&nbsp; All rights reserved <span  style="color: #cf1616;">  19-06-2021.</span>
+  </footer>
+
+
+  </body>
+</html>
